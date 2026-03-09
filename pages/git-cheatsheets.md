@@ -1,0 +1,62 @@
+- [[configure git]]
+	- ```bash
+	  # get the current user name
+	  git config get user.name
+	  # get the email
+	  git config get user.email
+	  ```
+- [[set default git branch]]
+	- ```bash
+	  # set default branch to master
+	  git config set --global init.defaultBranch master
+	  
+	  # verify
+	  cat ~/.gitconfig
+	  ```
+- [[limit git log result]]
+	- [[git log]]
+	- ```bash
+	  # show only one, you can change the last value to 10 to show only the last 
+	  # 	10 commits
+	  git --no-pager log -n 1 
+	  ```
+- [[create branch and switch]]
+	- [[git switch]] [[git checkout]]
+	- ```bash
+	  # old way 
+	  git checkout -b {branch_name}
+	  
+	  new way
+	  git switch -c {branch_name}
+	  ```
+- adding alias to visualize tree in git
+	- ```bash
+	  git config --global alias.tree "log --graph --oneline --decorate --all"
+	  
+	  # now we can do
+	  git tree
+	  ```
+- [[show logs in git]]
+	- [[git log]] [[git log --graph]]
+	- ```bash
+	  git log
+	  
+	  # better to see logs
+	  git log --oneline
+	  
+	  # show log graph
+	  git log --online --graph --decorate --all/--parent
+	  ```
+- [[reset to previous history]]
+	- [[git reset]]
+	- get back to previous commit
+	- ```bash
+	  # see all git history
+	  git reflog --online
+	  
+	  # reset to {hash} commit and retain the current changes
+	  git reset --soft {hash}
+	  
+	  # reset to previous, this will ignore the last commit
+	  git reset --hard {hash or head}
+	  ```
